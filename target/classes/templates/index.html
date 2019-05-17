@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://www.hzbtqc.cn/carshow.html?bd_vid=12260624630793124307 -->
+<html lang="zh-CN" class=" desktop landscape">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="http://www.hzbtqc.cn/images/favicon.ico" type="image/x-icon">
+    <title>Olympus Car Scheme</title>
+
+    <!-- Bootstrap -->
+    <link href="../static/index/bootstrap.css" rel="stylesheet">
+    <!-- Links -->
+    <!--JS-->
+    <!--<script src="../static/index/hm.js"></script>-->
+    <script src="../static/index/jquery.js"></script>
+    <script src="../static/index/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../static/index/device.min.js"></script>
+    <link rel="stylesheet" href="../static/index/tm_docs.css" type="text/css" media="screen">
+    <link href="../static/index/tm_panel.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/index/main.css">
+</head>
+<body>
+<div class="page" id="wrapper">
+    <header class="header-1">
+        <div id="stuck_container" class="stuck_container isStuck"
+             style="top: 0px; visibility: visible; position: fixed; width: 100%; margin-top: 0px;">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top ">
+                    <div class="navbar-header">
+                        <h1 style="margin-top:20px;">
+                            <a data-type="rd-navbar-brand" href="/route/toIndex">
+                                <img style="height:200%;width:60px;" src="../static/img/icon.png">
+                                Olympus Car Scheme
+                            </a>
+                        </h1>
+                    </div>
+                    <div style="float: right;margin-right: -10px;" class="navbar-header">
+                        <template v-if="notLogged">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/route/toLogin">Login</a></li>
+                            </ul>
+                        </template>
+                        <template v-if="logged">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">welcome!{{userName}} <span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a v-on:click="logout()">logOut</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </template>
+                    </div>
+                    <ul class="navbar-nav sf-menu navbar-right sf-js-enabled sf-arrows" data-type="navbar">
+                        <li><a v-on:click="toIndex()" data-toggle="tab">Home</a></li>
+                        <li><a v-on:click="toCarInformation()" data-toggle="tab">Car Information</a></li>
+                        <li><a v-on:click="toIntroduction()" data-toggle="tab">About us</a></li>
+                        <li><a v-on:click="toReservastion()" data-toggle="tab">Car Reservastion Record</a></li>
+                    </ul>
+                </nav>
+                <hr class="hr1">
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="well well4 well4_ins2 center991">
+            <div class="container">
+                <hr class="hr2">
+                <h3 class="txt-sec">
+                    Show Cars
+                </h3>
+                <p class="lead txt-sec">
+                    We provide many kinds of cars for you to choose,if you have some other requirement <span class="text-primary">Please contact us！</span>we will try our best to meet your requirement.
+                </p>
+                <div class="row col-4_mod">
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img1.jpg">
+                                <img src="../static/index/page-4_img1.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Buick GL8
+                                        <small>
+                                            2011 paragraph
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img2.jpg">
+                                <img src="../static/index/page-4_img2.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Buick GL8
+                                        <small>
+
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img3.jpg">
+                                <img src="../static/index/page-4_img3.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Toyota VIP Alpha
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img4.jpg">
+                                <img src="../static/index/page-4_img4.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Mercedes Benz S350
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img5.jpg">
+                                <img src="../static/index/page-4_img5.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Audi A6
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img6.jpg">
+                                <img src="../static/index/page-4_img6.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        BMW 7 Series
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img7.jpg">
+                                <img src="../static/index/page-4_img7.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Viano
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img8.jpg">
+                                <img src="../static/index/page-4_img8.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Honda Accord
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img9.jpg">
+                                <img src="../static/index/page-4_img9.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Volkswagen Passat
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img10.jpg">
+                                <img src="../static/index/page-4_img10.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Buick Lacrosse
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img11.jpg">
+                                <img src="../static/index/page-4_img11.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Toyoda Kamimizu
+                                        <small>
+                                            &nbsp;
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img12.jpg">
+                                <img src="../static/index/page-4_img12.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Toyota coaster
+                                        <small>
+                                            The 19 seat
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail-1 thumbnail4">
+                            <a class="thumb" data-gallery="1"
+                               href="../static/index/page-4_img13.jpg">
+                                <img src="../static/index/page-4_img13.jpg" alt="">
+                                <span class="thumb_overlay"></span>
+                            </a>
+
+                            <div class="caption">
+                                <h6>
+                                    <a href="/route/toIndex">
+                                        Toyota coaster
+                                        <small>
+                                            The 23 seat
+                                        </small>
+                                    </a>
+                                </h6>
+                                <p class="offset-4">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="well well7 bg-info">
+            <div class="container">
+                <div class="wrapper-1">
+                    <h3 class="lh-1 white pull-left">
+                        If there is no model you expect, please contact us immediately.
+                    </h3>
+                    <a href="/route/toIntroduction" class="pull-right offset-null btn btn-primary">
+                        Contact Us <span class="icon icon-md fa-long-arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+<a href="http://www.hzbtqc.cn/carshow.html?bd_vid=12260624630793124307#" id="toTop" class="toTop fa fa-angle-up"
+   style=""></a>
+<div id="galleryOverlay" style="display: none;">
+    <div id="gallerySlider">
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+        <div class="placeholder"></div>
+    </div>
+    <a id="prevArrow"></a><a id="nextArrow"></a></div>
+<div class="rd-mobilemenu">
+    <ul class="rd-mobilemenu_ul">
+        <li><a href="http://www.hzbtqc.cn/">Home</a></li>
+        <li><a href="http://www.hzbtqc.cn/about.html">Car Information</a></li>
+        <li class="active"><a href="http://www.hzbtqc.cn/carshow.html">About us</a></li>
+        <li><a href="http://www.hzbtqc.cn/offer.html">Car Reservastion Record</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+               aria-haspopup="true" aria-expanded="false">welcome!{{userName}} <span
+                    class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a v-on:click="logout()">logOut</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="rd-mobilepanel">
+    <button class="rd-mobilepanel_toggle"><span></span></button>
+    <h2 class="rd-mobilepanel_title">
+        Olympus Car Scheme
+    </h2>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../static/index/bootstrap.min.js"></script>
+<script src="../static/index/jquery.cookie.js"></script>
+<script src="../static/index/jquery.easing.1.3.js"></script>
+<!--<script src="../static/index/tmstickup.js"></script>-->
+<script src="../static/index/jquery.ui.totop.js"></script>
+<script src="../static/index/jquery.rd-navbar.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+<script src="../static/index/jquery.form.min.js"></script>
+<script src="../static/index/jquery.rd-mailform.min.js"></script>
+<script src="../static/index/jquery.cookie.js"></script>
+<script src="../static/index/jquery.touch-touch.js"></script>
+<script src="../static/index/jquery.rd-parallax.js"></script>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/bootStrap/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../static/js/bootStrap/ie10-viewport-bug-workaround.js"></script>
+<script src="../static/js/index/index.js"></script>
+<script src="../static/js/vue/vue.js"></script>
+<script src="../static/js/utils/http.js"></script>
+<script src="../static/js/bootStrap/dialog.js"></script>
+</body>
+</html>

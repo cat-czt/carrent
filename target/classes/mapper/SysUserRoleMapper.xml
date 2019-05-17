@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qc.information.system.mapper.SysUserRoleMapper">
+
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.qc.information.system.entity.SysUserRole">
+        insert into sys_user_role (
+        user_id,
+        role_id
+      )values (
+        #{userId,jdbcType=INTEGER},
+        #{roleId,jdbcType=INTEGER}
+      )
+    </insert>
+
+    <update id="resetCredit" parameterType="java.lang.Integer">
+        update sys_user set credit = 0 where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qc.information.main.mapper.CarMapper">
+
+    <resultMap id="baseResultMap" type="com.qc.information.main.entity.Car">
+        <id property="cid" column="cid" jdbcType="INTEGER"/>
+        <result property="maker" column="maker" jdbcType="VARCHAR"/>
+        <result property="model" column="model" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="productTime" column="product_time" jdbcType="TIMESTAMP"/>
+        <result property="rent" column="rent" jdbcType="INTEGER"/>
+        <result property="cicon" column="cicon" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="disable" column="disable" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getByLocationId" resultMap="baseResultMap" parameterType="java.lang.Integer">
+        select c.* from car c
+        where c.cid in (
+          select cid from location_car where location_id = #{id}
+        )
+    </select>
+
+</mapper>

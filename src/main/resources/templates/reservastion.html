@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Car Reservastion Record</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="../static/js/jquery/jquery.min.js"></script>
+    <script src="../static/js/bootStrap/bootstrap.min.js"></script>
+    <link rel="icon" href="../static/favicon.ico">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script src="../static/js/bootStrap/ie-emulation-modes-warning.js"></script>
+    <script src="../static/js/bootStrap/html5shiv.min.js"></script>
+    <script src="../static/js/bootStrap/respond.min.js"></script>
+    <link href="../static/css/carousel.css" rel="stylesheet">
+</head>
+<style>
+    .table td, th {
+        outline: 1px solid darkgrey;
+        text-align: center;
+    }
+
+    .table td {
+        font-size: 15px;
+    }
+</style>
+<body>
+<div id="wrapper" style="width:100%;height: 100%;">
+    <div class="navbar-wrapper" style="width:100%;">
+        <div class="container">
+             <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #2e6da4;">
+                <div class="container" style="color:white;font-size: 20px;font-weight: bold;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" v-on:click="toIndex()"
+                       style="color:white;font-size: 20px;font-weight: bold;margin-top:-6px;">
+                        <img style="height:200%;width:60px;" src="../static/img/icon.png">
+                    </a>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul id="nav-bar" class="nav navbar-nav">
+                            <li><a v-on:click="toIndex()" data-toggle="tab">Home</a></li>
+                            <li><a v-on:click="toCarInformation()" data-toggle="tab">Car Information</a></li>
+                            <li><a v-on:click="toIntroduction()" data-toggle="tab">About us</a></li>
+                            <li><a v-on:click="toReservastion()" data-toggle="tab">Car Reservastion Record</a></li>
+                        </ul>
+                        <div style="float: right;" class="navbar-header">
+                            <template v-if="notLogged">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/route/toLogin">Login</a></li>
+                                </ul>
+                            </template>
+                            <template v-if="logged">
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-haspopup="true" aria-expanded="false">welcome!{{userName}} <span
+                                                class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a v-on:click="logout()">logOut</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="table-responsive" style="margin:120px auto;width: 100%;border:2px solid skyblue;border-radius: 30px;">
+        <table class="table">
+            <h3 style="text-indent: 30px;">Car Reservastion Record
+            </h3>
+            <ul id="find">
+                <li>
+                    Search By OrderId:<select style="margin-top:-30px;margin-left:130px;width:120px;display:block;"
+                                              v-on:change="searchByOrderId()" v-model="orderId" class="form-control">
+                    <option v-for="(item) in orderList" :value="item.orderId">{{item.orderId}}</option>
+                </select>
+                </li>
+                <li>
+
+                    Search By UserName:<select style="margin-top:-30px;margin-left:150px;width:120px;display:block;"
+                                               v-on:change="searchByUserName()" v-model="name" class="form-control">
+                    <option v-for="(item) in orderList" :value="item.userName">{{item.userName}}</option>
+                </select>
+                </li>
+                <li>
+                    Search By UserPhone:<select style="margin-top:-30px;margin-left:150px;width:120px;display:block;"
+                                                v-on:change="searchByUserPhone()" v-model="userPhone" class="form-control">
+                    <option v-for="(item) in orderList" :value="item.userPhone">{{item.userPhone}}</option>
+                </select>
+                </li>
+                <li>
+                    Search By CreateTime:<select style="margin-top:-30px;margin-left:150px;width:120px;display:block;"
+                                                 v-on:change="searchByCreateTime()" v-model="createTime"
+                                                 class="form-control">
+                    <option v-for="(item) in orderList" :value="item.userName">{{item.createTime}}</option>
+                </select>
+                </li>
+                <li>
+                    <button style="margin-top:-30px;" type="button" v-on:click="toIndex()" class="btn btn-primary" data-dismiss="modal">Reset</button>
+                </li>
+            </ul>
+            <thead style="font-size: 22px;">
+            <tr>
+                <th>orderId</th>
+                <th>orderAmount</th>
+                <th>userName</th>
+                <th>userPhone</th>
+                <th>userAddress</th>
+                <th>carId</th>
+                <th>carMaker</th>
+                <th>carType</th>
+                <th>pickupTime</th>
+                <th>dropoffLocation</th>
+                <th>dropoffTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in orderList">
+                <th>{{item.orderId}}</th>
+                <th>{{item.orderAmount}}</th>
+                <th>{{item.userName}}</th>
+                <th>{{item.userPhone}}</th>
+                <th>{{item.userAddress}}</th>
+                <th>{{item.carId}}</th>
+                <th>{{item.carMaker}}</th>
+                <th>{{item.carType}}</th>
+                <th>{{item.pickupTime}}</th>
+                <th>{{item.dropoffLocation}}</th>
+                <th>{{item.dropoffTime}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    #find{
+        padding: 30px;
+        list-style: none;
+    }
+    #find li{
+        float: left;
+    }
+</style>
+</body>
+<script src="../static/js/index/index.js"></script>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/bootStrap/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../static/js/bootStrap/ie10-viewport-bug-workaround.js"></script>
+<script src="../static/js/index/index.js"></script>
+<!--<script src="../static/js/match.js"></script>-->
+<script src="../static/js/vue/vue.js"></script>
+<script src="../static/js/utils/http.js"></script>
+<script src="../static/js/bootStrap/dialog.js"></script>
+</html>
